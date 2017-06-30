@@ -49,4 +49,9 @@ setup(
         'Programming Language :: Python :: 3.3',
     ],
     test_suite='tests',
+    entry_points={
+	'console_scripts': [
+	    'fsm_diff = fsm_diff.cli:main'
+	]
+    }
 )
