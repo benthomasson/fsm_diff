@@ -17,6 +17,9 @@ if sys.argv[-1] == 'publish':
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 setup(
     name='fsm_diff',
     version='0.1.0',
@@ -30,8 +33,7 @@ setup(
     ],
     package_dir={'fsm_diff': 'fsm_diff'},
     include_package_data=True,
-    install_requires=[
-    ],
+    install_requires=required,
     license="BSD",
     zip_safe=False,
     keywords='fsm_diff',
