@@ -36,8 +36,8 @@ def main(args=None):
     a_states = {x['label'] for x in a['states']}
     b_states = {x['label'] for x in b['states']}
 
-    missing_in_a = a_states - b_states
-    missing_in_b = b_states - a_states
+    missing_in_a = b_states - a_states
+    missing_in_b = a_states - b_states
 
     if (missing_in_b):
         print "Extra states in a:\n   ", "\n    ".join(list(missing_in_b))
@@ -48,8 +48,8 @@ def main(args=None):
     a_transitions = {tuple(sorted(x.items())) for x in a['transitions']}
     b_transitions = {tuple(sorted(x.items())) for x in b['transitions']}
 
-    missing_in_a = a_transitions - b_transitions
-    missing_in_b = b_transitions - a_transitions
+    missing_in_a = b_transitions - a_transitions
+    missing_in_b = a_transitions - b_transitions
 
     if (missing_in_b):
         print "Extra transitions in a:\n   ", "\n    ".join(map(str, missing_in_b))
